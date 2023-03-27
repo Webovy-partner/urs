@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="/public/css/min/style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Kolimbia</title>
+</head>
+<body>
+    <div class="mainscreen">
+        <header class="container header" x-data="{menuOpen : false}" @click.away="menuOpen = false">
+            <a href="/" class="logo"><img src="/public/img/logo.png" alt=""></a>
+            <nav :class="menuOpen ? 'active' : ''">
+                <a href="" class="text-graylight text-18 text-small">Služby</a>
+                <a href="" class="text-graylight text-18 text-small">Školení</a>
+                <a href="" class="text-graylight text-18 text-small">E-shop</a>
+                <a href="" class="text-graylight text-18 text-small">Blog</a>
+                <a href="" class="text-graylight text-18 text-small">O nás</a>
+                <a href="" class="text-graylight text-18 text-small">Kontakt</a>
+            </nav>
+            <div class="hamburger"  @click="menuOpen = ! menuOpen" :class="menuOpen ? 'change' : ''" >
+                <div class="hamburger__item">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+            <span class="menu-shadow" :class="menuOpen ? 'active' : ''" @click="menuOpen = false"></span>
+        </header>
+
+        <div class="slideshow container">
+            <ul id="slideshow__main">
+
+                <div class="slideshow__main-item year">
+                    <div class="df jst-b">
+                        <div>
+                            <p class="text-48 text-white text-bold">Nové služby!</p>
+                            <p class="text-18 text-regular text-graylight">S novým rokem zde máme nové služby, které Vám přinesou nespočet výhod! Zdokonalili jsme naše zálohovací řešení, monitorovací systémy, evidenci požadavků a mnoho více!</p>
+                            <div class="buttons">
+                                <a href="" class="btn-primary">Zobrazit všechny služby</a>
+                                <a href="" class="btn-secondary">Prozkoumat</a>
+                            </div>
+                        </div>
+                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_1.png" alt=""></div>
+                    </div>
+                </div>
+
+                <div class=" slideshow__main-item">
+                    <div class="df jst-b">
+                        <div>
+                            <p class="text-48 text-white text-bold">Řízení rizik</p>
+                            <p class="text-18 text-regular text-graylight">Systematický proces na zjišťování existujících i potenciálních rizik ohrožujících vaši firmu vám pomůže předejít mnoha nepříjemným situacím.</p>
+                            <div class="buttons">
+                                <a href="" class="btn-primary">Předejít škodám</a>
+                                <a href="" class="btn-secondary">Více informací</a>
+                            </div>
+                        </div>
+                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_2.svg" alt=""></div>
+                    </div>
+                </div>
+
+                <div class=" slideshow__main-item">
+                    <div class="df jst-b">
+                        <div>
+                            <p class="text-48 text-white text-bold">Servisní balíček</p>
+                            <p class="text-18 text-regular text-graylight">Prozkoumejte náš servisní balíček, vyřešíme vše za vás od základní bezpečnostní konfigurace, přes antivirové řešení až po tiktovací systém.</p>
+                            <div class="buttons">
+                                <a href="" class="btn-primary">Mám zájem</a>
+                                <a href="" class="btn-secondary">Více informací</a>
+                            </div>
+                        </div>
+                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_6.svg" alt=""></div>
+                    </div>
+                </div>
+
+                <div class=" slideshow__main-item">
+                    <div class="df jst-b">
+                        <div>
+                            <p class="text-48 text-white text-bold">Zálohovací řešení</p>
+                            <p class="text-18 text-regular text-graylight">Šetřete peníze i čas za práce na napadnutném PC. Předejděte rozšíření hrozeb z jednoho počítače na celou podnikovou síť a tím obrovským výdajům za IT. Chraňte své know-how a data před únikem a zneužitím.</p>
+                            <div class="buttons">
+                                <a href="" class="btn-primary">Chci zálohovací řešení</a>
+                                <a href="" class="btn-secondary">Více informací</a>
+                            </div>
+                        </div>
+                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_3.svg" alt=""></div>
+                    </div>
+                </div>
+
+                <div class=" slideshow__main-item">
+                    <div class="df jst-b">
+                        <div>
+                            <p class="text-48 text-white text-bold">Bezpečná pošta</p>
+                            <p class="text-18 text-regular text-graylight">Využívání e-mailové komunikace se stalo samozřejmostí dnešní doby. Šifrování e-mailů bohužel nikoli. Pomocí dnes běžně dostupných prostředků může neoprávněná osoba číst obsah e-mailu, který pro ni není určen.</p>
+                            <div class="buttons">
+                                <a href="" class="btn-primary">Chci šifrovanou poštu</a>
+                                <a href="" class="btn-secondary">Více informací</a>
+                            </div>
+                        </div>
+                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_4.svg" alt=""></div>
+                    </div>
+                </div>
+
+                <div class=" slideshow__main-item">
+                    <div class="df jst-b">
+                        <div>
+                            <p class="text-48 text-white text-bold">IT Audit</p>
+                            <p class="text-18 text-regular text-graylight">IT audit F13 zanalyzuje Vaši IT inftrastrukturu a IT procesy a na základě této analýzy předloží doporučení, jak využívat firemní IT efektivněji a s minimálním možným rizikem.</p>
+                            <div class="buttons">
+                                <a href="" class="btn-primary">Chci šifrovanou poštu</a>
+                                <a href="" class="btn-secondary">Více informací</a>
+                            </div>
+                        </div>
+                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_5.svg" alt=""></div>
+                    </div>
+                </div>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <footer class="footer container">
+        <div class="contactform">
+            <form action="/mail.php" id="contactform" class="form">
+                <p class="text-center text-19 text-black text-medium">Vyplňte formulář a naši specialisté Vás kontaktují.</p>
+                <div class="input__container">
+                    <div class="input__group">
+                        <label for="name">Jméno*</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="input__group">
+                        <label for="phone">Telefon*</label>
+                        <input type="text" name="phone" required>
+                    </div>
+                    <div class="input__group">
+                        <label for="surname">Přijímení*</label>
+                        <input type="text" name="surname" required>
+                    </div>
+                    <div class="input__group">
+                        <label for="mail">Email*</label>
+                        <input type="text" name="mail" required>
+                    </div>
+                </div>
+                <textarea class="textarea text-16" placeholder="Chcete něco dodat?" name="" id="" cols="30" rows="10"></textarea>
+                <p class="forminfo text-graylight">Veškeré ceny služeb s Vámi probereme po zjištění všech potřebných informacích.</p>
+            <button type="submit" class="btn-primary white">Odeslat</button>
+            <div class="success">Úspěšně jsme obdrželi Váš email, v blízké době Vás budeme kontaktovat!</div>  
+    </form>
+       </div>
+    </footer>
+    <script src="/public/js/alpine.js" padefer></script>
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/lightslider.js"></script>
+    <script src="/public/js/script.js"></script>
+    <script src="/public/js/mail.js"></script>
+</body>
+</html>
