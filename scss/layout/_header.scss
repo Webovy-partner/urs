@@ -1,110 +1,50 @@
 .header{
     z-index: 999;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: transparent;
+    //position: relative;
+    @media screen and (min-width: $show_mobile_menu_at) {
+        height: 140px;
+        &:after{
+            height: 100%;
+            content: '';
+            top: 0;
+            position: absolute;
+            width: 100vw;
+            height: 140px;
+            left: 0;
+            z-index: -1;
+            background-color: $gray-light;
+        }
+    }
+    nav{
+        @media screen and (max-width: 970px){
+            margin-left: 0 !important;
+        }
+        @media screen and (min-width: $show_mobile_menu_at){
+            margin-right: auto;
+            margin-left: 35px;
+        }
+
+        a{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+    }
+    background-color: #F4F7F9;
     @media screen and (max-width: $show_mobile_menu_at){
         position: fixed;
         width: 100%;
         padding: 0;
         top: 0;
-        background-color: white;
-    }
-    &__lang{
-        &-pc{
-            display: flex;
-            padding-left: 20px;
-            gap: 13px;
-            @media screen and (max-width: $show_mobile_menu_at) {
-                display: none;
-            }
-            a{
-                height: 30px;
-                width: 30px;
-                transition: .3s;
-                border: 1px solid transparent;
-                position: relative;
-                span{
-                    position: absolute;
-                    top: -3px;
-                    left: -1px;
-                    width: 30px;
-                    height: 30px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                &.activelang{
-                    border: 1px solid $blue-dark;
-                    background-color: transparent;
-                    &:hover{
-                        border: 1px solid $blue-dark;
-                        background-color: transparent;
-                        color: $blue-dark;
-                    }
-                }
-                &:hover{
-                    border: 1px solid $blue-dark;
-                }
-                justify-content: center;
-                display: flex;
-                align-items: center;
-            }
-        }
-        &-mobile{
-            @media screen and (min-width: $show_mobile_menu_at) {
-                display: none;
-            }
-            display: flex;
-            padding-left: 20px;
-            gap: 13px;
-            position: relative;
-            z-index: 99;
-            top: 4px;
-            right: 70px;
-            a{
-                height: 30px;
-                border-radius: 50%;
-                width: 30px;
-                transition: .3s;
-                border: 1px solid transparent;
-                position: relative;
-                span{
-                    position: absolute;
-                    top: -1px;
-                    left: -.5px;
-                    width: 30px;
-                    height: 30px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                &.activelang{
-                    border: 1px solid $blue-dark;
-                    background-color: transparent;
-                    &:hover{
-                        border: 1px solid $blue-dark;
-                        background-color: transparent;
-                        color: $blue-dark;
-                    }
-                }
-                &:hover{
-                    border: 1px solid $blue-dark;
-                }
-                justify-content: center;
-                display: flex;
-                align-items: center;
-            }
-        }
+        background-color: #F4F7F9;
     }
 
     .logo{
         z-index: 2;
         @media screen and (max-width: $show_mobile_menu_at){
-            padding-top: 15px;
+            padding-top: 10px;
             padding-left: 20px;
             &:after{
                 position: absolute;
@@ -120,9 +60,70 @@
         }
         img{
             height: 66.64px;
+            @media screen and (max-width: 1070px) {
+                height: 35px;
+            }
             @media screen and (max-width: $show_mobile_menu_at){
                 height: 40px;
             }
         }
+    }
+
+    &__actions{
+        display: flex;
+        align-items: center;
+        z-index: 2  ;
+
+        & > button{
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border: unset;
+            padding: 10px;
+        }
+
+        & > a, & > button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media screen and (max-width: $show-mobile-menu-at){
+
+            margin-left: auto;
+            margin-right: 60px;
+
+        }
+        .btn-red{
+            @media screen and (max-width: 600px){
+                display: none;
+            }
+        }
+        & > a{
+            padding: 10px;
+        }
+
+        &-buttons{
+            margin-left: 40px;
+            display: flex;
+            gap: 10px;
+            @media screen and (min-width: $show-mobile-menu-at) and (max-width: 950px){
+                flex-direction: column;
+            }
+            @media screen and (max-width: 600px){
+                margin-left: auto;
+            }
+            .btn-gray{
+                gap: 10px;
+            }
+        }
+    }
+}
+
+.nav__button-mobile{
+    display: none;
+    @media screen and (max-width: $show-mobile-menu-at) {
+        display: block;
+        max-width: 150px;
+        margin-top: 10px;
     }
 }

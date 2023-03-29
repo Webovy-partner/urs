@@ -5,23 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link rel="stylesheet" href="/public/css/min/style.min.css">
+    <link rel="stylesheet" href="public/css/min/style.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Kolimbia</title>
+    <title>URS</title>
 </head>
 <body>
     <div class="mainscreen">
         <header class="container header" x-data="{menuOpen : false}" @click.away="menuOpen = false">
-            <a href="/" class="logo"><img src="/public/img/logo.png" alt=""></a>
+            <a href="/" class="logo"><img src="public/img/logo.png" alt=""></a>
             <nav :class="menuOpen ? 'active' : ''">
-                <a href="" class="text-graylight text-18 text-small">Služby</a>
-                <a href="" class="text-graylight text-18 text-small">Školení</a>
-                <a href="" class="text-graylight text-18 text-small">E-shop</a>
-                <a href="" class="text-graylight text-18 text-small">Blog</a>
-                <a href="" class="text-graylight text-18 text-small">O nás</a>
-                <a href="" class="text-graylight text-18 text-small">Kontakt</a>
+                <a href="" class="text-black text-16 text-small">Certification</a>
+                <a href="" class="text-black text-16 text-small">Inspection</a>
+                <a href="" class="text-black text-16 text-small">Testing</a>
+                <a href="" class="text-black text-16 text-small">About URS <img src="public/img/icons/dropdown.png" width="10" alt=""></a>
+                <div class="df nav__button-mobile">
+                    <a href="" class="btn-red text-12 text-bold">Request a quote</a>
+                </div>
             </nav>
+            <div class="header__actions">
+                <button><img src="public/img/icons/search.png" width="20" alt=""></button>
+                <a href=""><img src="public/img/icons/user.png" width="20" alt=""></a>
+                <div class="header__actions-buttons">
+                    <a href="" class="btn-red text-12 text-bold">Request a quote</a>
+                    <a href="" class="btn-gray df alg-c text-12 text-bold">
+                        <img src="public/img/icons/earth.png" width="20" alt="">
+                        Global
+                        <img src="public/img/icons/dropdown__white.png" width="10" alt="">
+                    </a>
+                </div>
+            </div>
             <div class="hamburger"  @click="menuOpen = ! menuOpen" :class="menuOpen ? 'change' : ''" >
                 <div class="hamburger__item">
                     <div class="bar1"></div>
@@ -33,130 +46,530 @@
         </header>
 
         <div class="slideshow container">
-            <ul id="slideshow__main">
 
-                <div class="slideshow__main-item year">
-                    <div class="df jst-b">
-                        <div>
-                            <p class="text-48 text-white text-bold">Nové služby!</p>
-                            <p class="text-18 text-regular text-graylight">S novým rokem zde máme nové služby, které Vám přinesou nespočet výhod! Zdokonalili jsme naše zálohovací řešení, monitorovací systémy, evidenci požadavků a mnoho více!</p>
-                            <div class="buttons">
-                                <a href="" class="btn-primary">Zobrazit všechny služby</a>
-                                <a href="" class="btn-secondary">Prozkoumat</a>
+            <div class="slideshow__menu">
+                <ul id="slideshow__mainnavigation" class="slnav">
+                    <div class="slnav__item" onclick="slideTo(1)">
+                        <p class="text-16 text-regular text-gray">Transport&nbsp;and&nbsp;logistics</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(2)">
+                        <p class="text-16 text-regular text-gray">Second&nbsp;Party&nbsp;Audits</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(3)">
+                        <p class="text-16 text-regular text-gray">Data&nbsp;Security</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(4)">
+                        <p class="text-16 text-regular text-gray">Medical&nbsp;Devices</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(5)">
+                        <p class="text-16 text-regular text-gray">Automotive</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(6)">
+                        <p class="text-16 text-regular text-gray">Aerospace&nbsp;Industry</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(7)">
+                        <p class="text-16 text-regular text-gray">Management&nbsp;Systems</p>
+                    </div>
+                </ul>
+                <span class="slideshow__menu-bb"></span>
+            </div>
+
+            <ul id="slideshow__main" class="slideshow__main">
+
+                <div class="slitem" id="slitem-1">
+                    <div class="slitem__left">
+                        <p class="slitem__left-green text-30">Transport and logistics</p>
+                        <img src="public/img/slideshow/r.jpg" height="200" alt="">
+                    </div>
+                    <div class="slitem__right">
+                        <h1 class="text-black text-50 text-extrabold">Automotive Quality, Security and Systems</h1>
+                        <p class="text-16 text-regular text-gray">Integer lacinia. Fusce consectetuer risus a nunc. Etiam neque. Aliquam erat volutpat. Maecenas sollicitudin. Quisque porta. Aenean fermentum risus id tortor.</p>
+                        <p class="text-bold text-16 text-black">Related Products</p>
+                        <div class="related__row">
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <button class="slitem__right-showmore">Show me more...</button>
                             </div>
                         </div>
-                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_1.png" alt=""></div>
-                    </div>
-                </div>
-
-                <div class=" slideshow__main-item">
-                    <div class="df jst-b">
-                        <div>
-                            <p class="text-48 text-white text-bold">Řízení rizik</p>
-                            <p class="text-18 text-regular text-graylight">Systematický proces na zjišťování existujících i potenciálních rizik ohrožujících vaši firmu vám pomůže předejít mnoha nepříjemným situacím.</p>
-                            <div class="buttons">
-                                <a href="" class="btn-primary">Předejít škodám</a>
-                                <a href="" class="btn-secondary">Více informací</a>
+                        <div class="slitem__right-actions">
+                            <div class="df">
+                                <a href="" class="btn-red text-bold text-20">I'm interested</a>
+                                <a href="" class="btn-transparent">More information</a>
                             </div>
                         </div>
-                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_2.svg" alt=""></div>
                     </div>
                 </div>
-
-                <div class=" slideshow__main-item">
-                    <div class="df jst-b">
-                        <div>
-                            <p class="text-48 text-white text-bold">Servisní balíček</p>
-                            <p class="text-18 text-regular text-graylight">Prozkoumejte náš servisní balíček, vyřešíme vše za vás od základní bezpečnostní konfigurace, přes antivirové řešení až po tiktovací systém.</p>
-                            <div class="buttons">
-                                <a href="" class="btn-primary">Mám zájem</a>
-                                <a href="" class="btn-secondary">Více informací</a>
+                <div class="slitem" id="slitem-2">
+                    <div class="slitem__left">
+                        <p class="slitem__left-green text-40">Second Party Audits</p>
+                        <img src="public/img/slideshow/r.jpg" height="200" alt="">
+                    </div>
+                    <div class="slitem__right">
+                        <h1 class="text-black text-50 text-extrabold">Automotive Quality, Security and Systems</h1>
+                        <p class="text-16 text-regular text-gray">Integer lacinia. Fusce consectetuer risus a nunc. Etiam neque. Aliquam erat volutpat. Maecenas sollicitudin. Quisque porta. Aenean fermentum risus id tortor.</p>
+                        <p class="text-bold text-16 text-black">Related Products</p>
+                        <div class="related__row">
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <button class="slitem__right-showmore">Show me more...</button>
                             </div>
                         </div>
-                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_6.svg" alt=""></div>
-                    </div>
-                </div>
-
-                <div class=" slideshow__main-item">
-                    <div class="df jst-b">
-                        <div>
-                            <p class="text-48 text-white text-bold">Zálohovací řešení</p>
-                            <p class="text-18 text-regular text-graylight">Šetřete peníze i čas za práce na napadnutném PC. Předejděte rozšíření hrozeb z jednoho počítače na celou podnikovou síť a tím obrovským výdajům za IT. Chraňte své know-how a data před únikem a zneužitím.</p>
-                            <div class="buttons">
-                                <a href="" class="btn-primary">Chci zálohovací řešení</a>
-                                <a href="" class="btn-secondary">Více informací</a>
+                        <div class="slitem__right-actions">
+                            <div class="df">
+                                <a href="" class="btn-red text-bold text-20">I'm interested</a>
+                                <a href="" class="btn-transparent">More information</a>
                             </div>
                         </div>
-                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_3.svg" alt=""></div>
                     </div>
                 </div>
-
-                <div class=" slideshow__main-item">
-                    <div class="df jst-b">
-                        <div>
-                            <p class="text-48 text-white text-bold">Bezpečná pošta</p>
-                            <p class="text-18 text-regular text-graylight">Využívání e-mailové komunikace se stalo samozřejmostí dnešní doby. Šifrování e-mailů bohužel nikoli. Pomocí dnes běžně dostupných prostředků může neoprávněná osoba číst obsah e-mailu, který pro ni není určen.</p>
-                            <div class="buttons">
-                                <a href="" class="btn-primary">Chci šifrovanou poštu</a>
-                                <a href="" class="btn-secondary">Více informací</a>
+                <div class="slitem" id="slitem-3">
+                    <div class="slitem__left">
+                        <p class="slitem__left-green text-40">Data Security</p>
+                        <img src="public/img/slideshow/r.jpg" height="200" alt="">
+                    </div>
+                    <div class="slitem__right">
+                        <h1 class="text-black text-50 text-extrabold">Automotive Quality, Security and Systems</h1>
+                        <p class="text-16 text-regular text-gray">Integer lacinia. Fusce consectetuer risus a nunc. Etiam neque. Aliquam erat volutpat. Maecenas sollicitudin. Quisque porta. Aenean fermentum risus id tortor.</p>
+                        <p class="text-bold text-16 text-black">Related Products</p>
+                        <div class="related__row">
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <button class="slitem__right-showmore">Show me more...</button>
                             </div>
                         </div>
-                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_4.svg" alt=""></div>
-                    </div>
-                </div>
-
-                <div class=" slideshow__main-item">
-                    <div class="df jst-b">
-                        <div>
-                            <p class="text-48 text-white text-bold">IT Audit</p>
-                            <p class="text-18 text-regular text-graylight">IT audit F13 zanalyzuje Vaši IT inftrastrukturu a IT procesy a na základě této analýzy předloží doporučení, jak využívat firemní IT efektivněji a s minimálním možným rizikem.</p>
-                            <div class="buttons">
-                                <a href="" class="btn-primary">Chci šifrovanou poštu</a>
-                                <a href="" class="btn-secondary">Více informací</a>
+                        <div class="slitem__right-actions">
+                            <div class="df">
+                                <a href="" class="btn-red text-bold text-20">I'm interested</a>
+                                <a href="" class="btn-transparent">More information</a>
                             </div>
                         </div>
-                        <div class="slideshow__main-item-image"><img src="/public/img/slideshow_5.svg" alt=""></div>
                     </div>
                 </div>
-
+                <div class="slitem" id="slitem-4">
+                    <div class="slitem__left">
+                        <p class="slitem__left-green text-40">Medical Devices</p>
+                        <img src="public/img/slideshow/r.jpg" height="200" alt="">
+                    </div>
+                    <div class="slitem__right">
+                        <h1 class="text-black text-50 text-extrabold">Automotive Quality, Security and Systems</h1>
+                        <p class="text-16 text-regular text-gray">Integer lacinia. Fusce consectetuer risus a nunc. Etiam neque. Aliquam erat volutpat. Maecenas sollicitudin. Quisque porta. Aenean fermentum risus id tortor.</p>
+                        <p class="text-bold text-16 text-black">Related Products</p>
+                        <div class="related__row">
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <button class="slitem__right-showmore">Show me more...</button>
+                            </div>
+                        </div>
+                        <div class="slitem__right-actions">
+                            <div class="df">
+                                <a href="" class="btn-red text-bold text-20">I'm interested</a>
+                                <a href="" class="btn-transparent">More information</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slitem" id="slitem-5">
+                    <div class="slitem__left">
+                        <p class="slitem__left-green text-50">Automotive</p>
+                        <img src="public/img/slideshow/r.jpg" height="200" alt="">
+                    </div>
+                    <div class="slitem__right">
+                        <h1 class="text-black text-50 text-extrabold">Automotive Quality, Security and Systems</h1>
+                        <p class="text-16 text-regular text-gray">Integer lacinia. Fusce consectetuer risus a nunc. Etiam neque. Aliquam erat volutpat. Maecenas sollicitudin. Quisque porta. Aenean fermentum risus id tortor.</p>
+                        <p class="text-bold text-16 text-black">Related Products</p>
+                        <div class="related__row">
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <button class="slitem__right-showmore">Show me more...</button>
+                            </div>
+                        </div>
+                        <div class="slitem__right-actions">
+                            <div class="df">
+                                <a href="" class="btn-red text-bold text-20">I'm interested</a>
+                                <a href="" class="btn-transparent">More information</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slitem" id="slitem-6">
+                    <div class="slitem__left">
+                        <p class="slitem__left-green text-40">Aerospace Industry</p>
+                        <img src="public/img/slideshow/r.jpg" height="200" alt="">
+                    </div>
+                    <div class="slitem__right">
+                        <h1 class="text-black text-50 text-extrabold">Automotive Quality, Security and Systems</h1>
+                        <p class="text-16 text-regular text-gray">Integer lacinia. Fusce consectetuer risus a nunc. Etiam neque. Aliquam erat volutpat. Maecenas sollicitudin. Quisque porta. Aenean fermentum risus id tortor.</p>
+                        <p class="text-bold text-16 text-black">Related Products</p>
+                        <div class="related__row">
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <button class="slitem__right-showmore">Show me more...</button>
+                            </div>
+                        </div>
+                        <div class="slitem__right-actions">
+                            <div class="df">
+                                <a href="" class="btn-red text-bold text-20">I'm interested</a>
+                                <a href="" class="btn-transparent">More information</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slitem" id="slitem-7">
+                    <div class="slitem__left">
+                        <p class="slitem__left-green text-30">Management Systems</p>
+                        <img src="public/img/slideshow/r.jpg" height="200" alt="">
+                    </div>
+                    <div class="slitem__right">
+                        <h1 class="text-black text-50 text-extrabold">Automotive Quality, Security and Systems</h1>
+                        <p class="text-16 text-regular text-gray">Integer lacinia. Fusce consectetuer risus a nunc. Etiam neque. Aliquam erat volutpat. Maecenas sollicitudin. Quisque porta. Aenean fermentum risus id tortor.</p>
+                        <p class="text-bold text-16 text-black">Related Products</p>
+                        <div class="related__row">
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <p class="label label-black">Certification</p>
+                                <p class="text-16 text-regular text-gray">KBA certification (German Road Traffic Law)</p>
+                            </div>
+                            <div class="df">
+                                <button class="slitem__right-showmore">Show me more...</button>
+                            </div>
+                        </div>
+                        <div class="slitem__right-actions">
+                            <div class="df">
+                                <a href="" class="btn-red text-bold text-20">I'm interested</a>
+                                <a href="" class="btn-transparent">More information</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
             </ul>
+
         </div>
     </div>
 
-
-    <footer class="footer container">
-        <div class="contactform">
-            <form action="/mail.php" id="contactform" class="form">
-                <p class="text-center text-19 text-black text-medium">Vyplňte formulář a naši specialisté Vás kontaktují.</p>
-                <div class="input__container">
-                    <div class="input__group">
-                        <label for="name">Jméno*</label>
-                        <input type="text" name="name" required>
+    <div class="container">
+        <div class="about">
+            <h2 class="text-30 text-regular text-uppercase text-black">About <span class="text-bold">urs</span></h2>
+            <div class="about__content">
+                <div class="about__left">
+                    <p class="text-16 text-regular text-gray">Testing, Training, Inspection, Product and Management Certification Services provided by <span class="text-black">URS Holdings</span> offers practical support for businesses, which is becoming an essential part of risk management.</p>
+                    <div class="about__left-box">
+                        <p class="text-16 text-regular text-gray">URS is an independent family owned business and its commercial entity funded by clients fees.</p>
                     </div>
-                    <div class="input__group">
-                        <label for="phone">Telefon*</label>
-                        <input type="text" name="phone" required>
-                    </div>
-                    <div class="input__group">
-                        <label for="surname">Přijímení*</label>
-                        <input type="text" name="surname" required>
-                    </div>
-                    <div class="input__group">
-                        <label for="mail">Email*</label>
-                        <input type="text" name="mail" required>
+                    <p class="text-16 text-regular text-gray">All services provided by <span class="text-black">URS worldwide</span> help customers Assure&nbsp;Confidence of their business.</p>
+                    <div class="df jst-c">
+                        <a href="" class="btn-gray text-14 text-regular">More information</a>
                     </div>
                 </div>
-                <textarea class="textarea text-16" placeholder="Chcete něco dodat?" name="" id="" cols="30" rows="10"></textarea>
-                <p class="forminfo text-graylight">Veškeré ceny služeb s Vámi probereme po zjištění všech potřebných informacích.</p>
-            <button type="submit" class="btn-primary white">Odeslat</button>
-            <div class="success">Úspěšně jsme obdrželi Váš email, v blízké době Vás budeme kontaktovat!</div>  
-    </form>
-       </div>
+                <div class="about__right">
+                    <div class="about__countbox">
+                        <p class="about__countbox-number">45 <span class="about__countbox-plus">+</span></p>
+                    </div>
+                    <div class="about__countbox">
+                        <p class="about__countbox-number">55 <span class="about__countbox-text">k</span></p>
+                    </div>
+                    <div class="about__countbox">
+                        <p class="about__countbox-number">25 <span class="about__countbox-plus">+</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="news">
+        <div class="container">
+            <h3 class="text-30 text-regular text-uppercase text-black">Hot <span class="text-bold">news</span></h3>
+        </div>
+        <div class="news__content">
+            <div class="container">
+                <div class="news__left">
+                    <p class="text-30 text-bold">Feed and Food Safety seminar GMP+FSA on 9th October 2022 in Warsaw</p>
+                    <div class="news__left-content">
+                        <img src="public/img/news/n.jpg" width="200" alt="">
+                        <div class="news__left-content-text">
+                            <div class="news__labels">
+                                <p class="text-14 text-semibold">today</p>
+                                <p class="label label-green2">Aerospace Industry</p>
+                            </div>
+                            <p class="text-16 text-regular text-gray">Feed and Food Safety seminar GMP+FSA on 9th October 2022 in Warsaw (from control through warranty to responsible chain...</p>
+                            <div class="df">
+                                <a href="" class="btn-gray text-14">Detail</a>
+                            </div>
+                        </div>
+                        <div class="news__left-more">
+                            <a href="" class="btn-gray text-14">More news</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="news__right">
+                    <div class="news__item">
+                        <a href="" class="text-25 text-black text-semibold">9th International Conference of Energy Management Managers</a>
+                        <div class="news__labels">
+                            <p class="text-14 text-semibold">today</p>
+                            <p class="label label-green">Aerospace Industry</p>
+                        </div>
+                        <p class="text-16 text-regular text-gray">This month, URS experts participated in the 9th International Conference of Energy Management Managers...</p>
+                    </div>
+                    <div class="news__item">
+                        <a href="" class="text-25 text-black text-semibold">9th International Conference of Energy Management Managers</a>
+                        <div class="news__labels">
+                            <p class="text-14 text-semibold">2 day ago</p>
+                            <p class="label label-red">Aerospace Industry</p>
+                        </div>
+                        <p class="text-16 text-regular text-gray">This month, URS experts participated in the 9th International Conference of Energy Management Managers...</p>
+                    </div>
+                    <div class="news__item">
+                        <a href="" class="text-25 text-black text-semibold">9th International Conference of Energy Management Managers</a>
+                        <div class="news__labels">
+                            <p class="text-14 text-semibold">10.10.2022</p>
+                            <p class="label label-blue">Aerospace Industry</p>
+                        </div>
+                        <p class="text-16 text-regular text-gray">This month, URS experts participated in the 9th International Conference of Energy Management Managers...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container digitalcert__container" id="test">
+        <div class="digitalcert">
+            <div class="digitalcert__text">
+                <h3 class="text-30 text-regular text-white">DIGITAL <span class="text-bold">CERTIFICATE</span></h3>
+                <p class="text-16 text-semibold text-white">Duis risus. Nullam eget nisl. Nullam justo enim ullamcorper ac, vestibulum in elit.
+                    <br><br><i class="text-regular">Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Integer vulputate sem a nibh rutrum consequat.</i>
+                    <br><br><span class="text-regular">Pellentesque habitant morbi tristique senectus et netus.</span>
+                </p>
+                <div class="df">
+                    <a href="" class="btn-whiteblue">About QR Certificate</a>
+                </div>
+            </div>
+            <img src="public/img/qr/scanqr.png" width="207" alt="Digital certification">
+            <div class="digitalcert__bottom">
+                <img src="public/img/qr/scanrq_2.png" height="150" alt="">
+                <p class="text-16 text-semibold text-uppercase">Web App available for ALL DEVICES go to <a href="https://app.urs-czech.cz/" target="_blank" class="text-white text-extrabold">app.urs-czech.cz</a></p>
+            </div>
+        </div>
+        <div class="greendeal">
+            <h3 class="text-30 text-regular text-black">DIGITAL <span class="text-bold">CERTIFICATE</span></h3>
+            <p class="text-16 text-semibold text-black">Donec iaculis gravida nulla. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Fusce suscipit libero eget elit.</p>
+            <p class="text-16 text-regular text-gray">Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Aliquam ante. Pellentesque arcu. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Integer in sapien.</p>
+            <div class="greendeal__green">
+                <p class="text-50 text-extrabold text-white">-25%</p>
+                <p class="text-20 text-bold text-white">Environmental<br>burden</p>
+            </div>
+            <div class="greendeal__list">
+                <img src="public/img/qr/qr_2.jpg" width="97" height="96" alt="">
+                <ul class="text-16 text-gray">
+                    <li>Integer vulputate sem</li>
+                    <li>In convallis</li>
+                    <li>Pellentesque habitant morbi</li>
+                    <li>Nullam faucibus mi quis</li>
+                </ul>
+            </div>
+            <p class="text-16 text-regular text-gray">Nam quis nulla. Praesent in mauris eu tortor porttitor accumsan. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="clients">
+            <h4 class="text-30 text-regular text-black text-uppercase">Urs <span class="text-bold">clients</span></h4>
+            
+            <ul id="slideshowflex" class="df clients__slideshow">
+                <div><img src="public/img/companies/canon.jpg" alt=""></div>
+                <div><img src="public/img/companies/kpmg.jpg" alt=""></div>
+                <div><img src="public/img/companies/orange.jpg" alt=""></div>
+                <div><img src="public/img/companies/pepsi.jpg" alt=""></div>
+                <div><img src="public/img/companies/tnt.jpg" alt=""></div>
+                <div><img src="public/img/companies/wunderman.jpg" alt=""></div>
+                <div><img src="public/img/companies/yar.jpg" alt=""></div>
+            </ul>
+            
+        </div>
+    </div>
+
+    <div class="footerform">
+        <div class="container">
+            <h4 class="text-30 text-regular text-black text-uppercase">enquiry <span class="text-bold">form</span></h4>
+            <div class="footerform__container">
+                <form action="" method="POST" class="footerform__form">
+                    <input type="text" name="name" placeholder="Name...">
+                    <input type="text" name="phone" placeholder="Mobile...">
+                    <input type="email" name="mail" placeholder="Email...">
+                    <div class="df alg-c jst-b">
+                        <div class="footerform__privacy">
+                            <div class="form-group">
+                                <input type="checkbox" id="privacy">
+                                <label for="privacy">I accept</label>
+                              </div>
+                              <a href="" target="_blank">Privacy Policy</a>
+                        </div>
+                        <button type="submit" class="btn-red">Send Message</button>
+                    </div>
+                </form>
+                <div class="footerform__navigation">
+                    <p class="text-20 text-semibold text-gray">Navigation</p>
+                    <div class="footerform__links">
+                        <a href="" class="text-16 text-regular text-white">Accreditations</a>
+                        <a href="" class="text-16 text-regular text-white">Memberships</a>
+                        <a href="" class="text-16 text-regular text-white">URS Academy</a>
+                        <a href="" class="text-16 text-regular text-white">ISO</a>
+                        <a href="" class="text-16 text-regular text-white">Certification</a>
+                        <a href="" class="text-16 text-regular text-white">Inspection</a>
+                        <a href="" class="text-16 text-regular text-white">Testing</a>
+                        <a href="" class="text-16 text-regular text-white">Product</a>
+                        <a href="" class="text-16 text-regular text-white">Training</a>
+                        <a href="" class="text-16 text-regular text-white">Contact</a>
+                        <a href="" class="text-16 text-regular text-white">Covid-19</a>
+                    </div>
+                    <p class="text-20 text-semibold text-gray">Newsletter</p>
+                    <form class="footerform__newsletter" action="" method="POST">
+                        <div class="df">
+                            <input type="email" placeholder="Email..">
+                            <button type="submit" class="btn-red">Subscribe</button>
+                        </div>
+                        
+                        <div class="footerform__privacy">
+                            <div class="form-group">
+                                <input type="checkbox" id="privacy2">
+                                <label for="privacy2">I accept</label>
+                              </div>
+                              <a href="" target="_blank">Privacy Policy</a>
+                        </div>
+
+                    </form>
+                    <div class="footer__links2">
+                        <a href="" class="text-14 text-regular text-gray">Published Materials | </a>
+                        <a href="" class="text-14 text-regular text-gray">Scheme Rules and Regulations | </a>
+                        <a href="" class="text-14 text-regular text-gray">Privacy | </a>
+                        <a href="" class="text-14 text-regular text-gray">Logos and Regulations | </a>
+                        <a href="" class="text-14 text-regular text-gray">Policy | </a>
+                        <a href="" class="text-14 text-regular text-gray">DDA | </a>
+                        <a href="" class="text-14 text-regular text-gray">Certification process | </a>
+                        <a href="" class="text-14 text-regular text-gray">About URS | </a>
+                        <a href="" class="text-14 text-regular text-gray">GCC | </a>
+                        <a href="" class="text-14 text-regular text-gray">Brexit | </a>
+                        <a href="" class="text-14 text-regular text-gray">Cookie setup</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__copy">
+                <p class="text-14 text-regular text-gray">Copyright © 2022 URS Holdings &nbsp;&nbsp;&nbsp; All Rights Reserved</p>
+            </div>
+            <a href="" target="_blank" class="footer__linked"><img src="public/img/linkedin.png" width="40" height="40" alt=""></a>
+        </div>
     </footer>
-    <script src="/public/js/alpine.js" padefer></script>
-    <script src="/public/js/jquery.min.js"></script>
-    <script src="/public/js/lightslider.js"></script>
-    <script src="/public/js/script.js"></script>
-    <script src="/public/js/mail.js"></script>
+
+    
+    <script src="public/js/alpine.js" padefer></script>
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/lightslider.js"></script>
+    <script src="public/js/script.js"></script>
+    <script src="public/js/mail.js"></script>
 </body>
 </html>

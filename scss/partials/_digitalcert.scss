@@ -1,0 +1,69 @@
+.digitalcert{
+    position: relative;
+    &__container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-bottom: 150px;
+        border-bottom: 2px solid $gray-light;
+        margin-bottom: 65px;
+        @media screen and (max-width: 880px) {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 40px;
+        }
+        @media screen and (max-width: 768px) {
+            padding-bottom: 60px;
+        }
+        
+    }
+
+    display: grid;
+    grid-template-columns: 241px 1fr;
+    @media screen and (max-width: 968px) {
+        grid-template-columns: 1fr;
+        & > img{
+            display: none;
+        }
+    }
+    gap: 41px;
+    img{
+        width: 100%;
+    }
+    padding-top: 41px;
+    padding-left: 47px;
+    padding-right: 49px;
+    padding-bottom: 33px;
+    padding-bottom: 121px;
+    background-color: $blue;
+    background-image: url('public/img/qr/dgc_background.png');
+    background-repeat: no-repeat;
+    background-position-x: -33px;
+    background-size: auto 300px;
+    background-position-y: calc(100% + 130px);
+    &__text{
+        .btn-whiteblue{
+            display: flex;
+            margin-top: 34px;
+        }
+    }
+
+    &__bottom{
+        position: absolute;
+        bottom: 0;
+        color: white;
+        display: flex;
+        padding-left: 52px;
+        right: 49px;
+        bottom: -60px;
+        gap: 33px;
+        @media screen and (max-width: 520px) {
+            bottom: 30px;
+        }
+        img{
+            width: auto;
+            @media screen and (max-width: 520px) {
+                display: none;
+            }
+        }
+    }
+}

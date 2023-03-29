@@ -2,9 +2,9 @@
 @import 'settings/default';
 @import 'settings/display';
 
+@import 'fonts/settings';
+
 @import 'components/buttons';
-@import 'components/contactform';
-@import 'components/fonts';
 @import 'components/hamburger';
 @import 'components/menu';
 
@@ -13,4 +13,8 @@
 
 @import 'partials/mainscreen';
 @import 'partials/slideshow';
-
+@import 'partials/about';
+@import 'partials/news';
+@import 'partials/digitalcert';
+@import 'partials/greendeal';
+@import 'partials/clients';

@@ -1,0 +1,49 @@
+.greendeal{
+    padding-left: 50px;
+    @media screen and (max-width: 880px) {
+        padding-left: 0;
+    }
+    .text-30{
+        margin-top: 30px;
+    }
+    & > p:nth-child(2){
+        margin-bottom: 28px;
+    }
+    .text-30{
+        margin-bottom: 22px;
+    }
+    &__list{
+        display: flex;
+        gap: 27px;
+        align-items: center;
+        margin-bottom: 37px;
+        ul{
+            padding-left: 18px;
+            margin: 0;
+        }
+    }
+    &__green{
+        background-color: $green;
+        padding-left: 44px;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        position: relative;
+        margin-top: 28px;
+        margin-bottom: 40px;
+        &:after{
+            width: calc(50vw - 50px);
+            background-color: $green;
+            height: 100%;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+        .text-20{
+            line-height: 22px;
+        }
+    }
+}

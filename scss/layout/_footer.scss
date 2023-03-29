@@ -1,3 +1,213 @@
 .footer{
-    
+    background-color: $black;
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+    &__links2{
+        max-width: 458px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 0;
+        left: 0;
+        position: absolute;
+        z-index: 1;
+        left: 49px;
+        margin-top: 34px;
+        line-height: 25px;
+
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    &__linked{
+        @media screen and (min-width: 768px){
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
 }
+
+.footerform{
+    h4{
+        margin-bottom: 39px;
+    }
+
+    &__container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        @media screen and (max-width: 950px) {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+    }
+
+    &__privacy{
+        display: flex;
+        font-size: 12px;
+        font-weight: 400;
+        color: $black;
+        align-items: flex-end;
+        .form-group{
+            position: relative;
+            top: 2px;
+        }
+        a{
+            color: $gray-dark;
+                padding-left: 4px;
+        }
+    }
+
+
+    &__newsletter{
+        margin-top: 15px;
+        .df{
+            display: flex;
+            gap: 19px;
+        }
+        input{
+            width: 100%;
+        }
+        .footerform__privacy{
+            margin-top: 17px;
+            color: $gray-dark;
+            a{
+                color: white;
+                text-decoration: underline;
+            }
+            label{
+                margin-bottom: 0;
+                &:before{
+                    background: white;
+                    border: unset;
+                }
+                &:after{
+                    top: 4px !important;
+                    left: 5px !important;
+                    width: 3px !important;
+                    height: 7px !important;
+                }
+            }
+        }
+    }
+    &__form{
+        background-color: $gray-light;
+        max-height: 320px;
+        box-sizing: border-box;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+        gap: 20px;
+
+        @media screen and (max-width: 580px) {
+            padding: 20px;
+        }
+    }
+
+    input[type=text],input[type=email]{
+        border: unset;
+        height: 40px;
+        padding-left: 15px;
+        font-size: 16px;
+        font-weight: 400;
+        box-sizing: border-box;
+        color: $gray-dark;
+        &::placeholder{
+            color: $gray-dark;
+        }
+        &:focus{
+            outline: unset;
+        }
+    }
+
+    &__navigation{
+        background-color: $black;
+        padding-top: 41px;
+        padding-left: 49px;
+        padding-right: 52px;
+        padding-bottom: 55px;
+        position: relative;
+        @media screen and (max-width: 950px) {
+            padding-bottom: 120px;
+        }
+        @media screen and (max-width: 580px) {
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-bottom: 150px;
+        }
+        a{
+            margin-right: 4px;
+            transition: .2s;
+            &:hover{
+                color: $red;
+            }
+        }
+    }
+    &__links{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        column-gap: 18px;
+        row-gap: 0px;
+        a{
+            &:hover{
+                color: $red;
+            }
+            transition: .3s;
+            line-height: 25px;
+        }
+    }
+}
+
+
+
+.form-group input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+  }
+  
+  .form-group label {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .form-group label:before {
+    content:'';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid $gray-dark;
+
+    padding: 7.5px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .form-group input:checked + label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 5px;
+    height: 9px;
+    border: solid $green;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }

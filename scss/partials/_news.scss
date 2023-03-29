@@ -1,0 +1,151 @@
+.news{
+    &__content{
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 2px solid $gray-light;
+            padding-bottom: 71px;
+
+            @media screen and (max-width: 1050px) {
+                flex-direction: column-reverse;
+                display: flex;
+                gap: 60px;
+            }
+            @media screen and (max-width: 768px) {
+                padding-bottom: 60px;
+            }
+        }
+    }
+
+    h3{
+        margin-bottom: 49px;
+        @media screen and (max-width: 768px) {
+            margin-bottom: 15px;
+        }
+    }
+    margin-bottom: 50px;
+    
+
+    &__labels{
+        display: flex;
+        margin-bottom: 13px;
+    }
+
+    &__left{
+        padding-bottom: 80px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        &-more{
+            bottom: calc(10px - 50px - 39px);
+            right: 0;
+            position: absolute;
+        }
+
+        & > .text-30{
+            padding-top: 60px;
+            background-color: $gray-light;
+            position: relative;
+            @media screen and (max-width: 1050px) {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            @media screen and (max-width: 768px) {
+                padding-top: 30px;
+            }
+            &:after{
+                z-index: -1;
+                background-color: $gray-light;
+                width: 50vw;
+                right: 0;
+                position: absolute;
+                top: 0;
+                content: '';
+                height: 100%;
+            }
+        }
+
+        &-content{
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            padding-top: 37px;
+            position: relative;
+            @media screen and (max-width: 1050px) {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            @media screen and (max-width: 500px) {
+                grid-template-columns: 1fr;
+                img{
+                    height: auto;
+                    width: 100%;
+                }
+            }
+            &:after{
+                z-index: -1;
+                background-color: $gray-light;
+                width: 50vw;
+                right: 0;
+                position: absolute;
+                top: 0;
+                content: '';
+                height: 100%;
+            }
+            background-color: $gray-light;
+            padding-bottom: 80px;
+            padding-right: 60px;
+            gap: 30px;
+            &-text{
+                display: flex;
+                flex-direction: column;
+                .df{
+                    margin-bottom: 13px;
+                }
+                .btn-gray{
+                    margin-top: 29px;
+                }
+            }
+        }
+    }
+
+    &__right{
+        padding-left: 55px;
+        @media screen and (max-width: 1050px) {
+            padding-left: 0;
+        }
+        padding-top: 33px;
+        display: grid;
+        gap: 32px;
+    }
+
+    &__item{
+        .news__labels{
+            margin-top: 13px;
+        }
+    }
+}
+
+.label{
+    padding: 4px 10px;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 16px;
+    &-green2{
+        background-color: $green_2;
+    }
+    &-green{
+        background-color: $green;
+    }
+    &-red{
+        background-color: $red;
+    }
+    &-blue{
+        background-color: $blue;
+    }
+    &-black{
+        background-color: $black;
+        color: white;
+        margin-left: 0;
+    }
+}

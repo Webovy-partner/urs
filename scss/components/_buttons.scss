@@ -1,9 +1,54 @@
 .btn{
-    &-primary{
-        
+    &-red{
+        padding: 10px 20px;
+        background-color: $red;
+        color: white;
+        border: unset;
+        min-height: 39px;
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        transition: .25s;
+        &:hover{
+            background-color: #CD3932;
+        }
     }
-    &-secondary{
-        
-    
+    &-gray{
+        padding: 10px 20px;
+        background-color: $gray-dark;
+        color: white;
+        box-sizing: border-box;
+        border: unset;
+        transition: .25s;
+        &:hover{
+            background-color: #8A9AA4;
+        }
     }
+    &-whiteblue{
+        background-color: white;
+        color: $blue;
+        font-weight: 400;
+        font-size: 14px;
+        padding: 10px 20px;
+        border: unset;
+        transition: .25s;
+        &:hover{
+            background-color: #e3e3e3;
+        }
+    }
+    &-transparent{
+        background-color: transparent;
+        color: $gray-dark;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        transition: .25s;
+        &:hover{
+            background-color: $gray-light;
+        }
+    }
+
 }

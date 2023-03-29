@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+a{
+    text-decoration: unset;
+}
+
+.text{
+    // font weights
+    &-boldest{
+        font-weight: 900;
+    }
+    &-extrabold{
+        font-weight: 800;
+    }
+    &-bold{
+        font-weight: 700;
+    }
+    &-regular{
+        font-weight: 400;
+    }
+    &-medium{
+        font-weight: 500;
+    }
+    &-semibold{
+        font-weight: 600;
+    }
+    &-extrabold{
+        font-weight: 900;
+    }
+
+    // font sizes
+    &-10{
+        font-size: 10px;
+        line-height: 15px;
+    }
+    &-12{
+        font-size: 12px;
+        line-height: 25px;
+    }
+    &-14{
+        font-size: 14px;
+    }
+    &-16{
+        font-size: 16px;
+        line-height: 24px;
+    }
+    &-18{
+        font-size: 18px;
+    }
+    &-20{
+        font-size: 20px;
+        line-height: 25px;
+    }
+    &-25{
+        font-size: 25px;
+        @media screen and (max-width: 768px) {
+            font-size: 24px;
+        }
+    }
+    &-30{
+        font-size: 30px;
+        @media screen and (max-width: 768px) {
+            font-size: 26px;
+        }
+    }
+    &-40{
+        font-size: 40px;
+        @media screen and (max-width: 768px) {
+            font-size: 26px;
+        }
+    }
+    &-50{
+        font-size: 50px;
+        @media screen and (max-width: 768px) {
+            font-size: 38px;
+        }
+    }
+
+    // font colors
+    &-gray{
+        color: $gray-dark;
+    }
+    &-white{
+        color: white;
+    }
+    &-black{
+        color: #1D1D1B;
+    }
+
+    // font styles
+    &-center{
+        text-align: center;
+    }
+    &-underline{
+        text-decoration: underline;
+    }
+    &-uppercase{
+        text-transform: uppercase;
+    }
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin-bottom: 29px;
+}
