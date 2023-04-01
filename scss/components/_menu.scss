@@ -52,7 +52,7 @@ nav{
         //border-radius: 20px;
         box-sizing: border-box;
     }
-    & > a{
+    & > a, .menu__dropdown a{
 
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: transparent;
@@ -79,5 +79,90 @@ nav{
     &.active{
         opacity: .4;
         transform: translateY(0);
+    }
+}
+
+@keyframes opacity {
+    from{
+        display: none;
+        opacity: 0;
+    }
+    to{
+        display: block;
+        opacity: 1;
+    }
+}
+
+.menu__dropdown{
+    position: relative;
+    &-head{
+        display: flex;
+        & > a {
+            flex-grow: 1;
+        }
+        @media screen and (max-width: $show_mobile_menu_at) {
+             & > a > img{
+                display: none;
+            }
+        }   
+    }
+    &-btn{
+        margin-left: auto;
+        width: 80px;
+        flex-grow: 1;
+        max-width: 50%;
+        text-align: right;
+        height: 32px;
+        img.active{
+            position: relative;
+            transform-origin: center;
+            transform: rotate(180deg);
+        }
+        margin-left: auto;
+        position: absolute;
+        right: 0;
+        @media screen and (min-width: $show_mobile_menu_at) {
+            display: none;
+        }
+    }
+    @media screen and (min-width: $show_mobile_menu_at) {
+        &:hover{
+            .menu__dropdown-head > a > img{
+                position: relative;
+                transform: translate(180deg);
+                transform-origin: center;
+            }
+            .menu__dropdown-container{
+                display: block !important;
+                animation-name: opacity;
+            }
+        }
+    }
+    &-container{
+        @media screen and (min-width: $show_mobile_menu_at) {
+            &:after{
+                position: absolute;
+                content: '';
+                top: -20px;
+                height: 20px;
+                right: 0;
+                background-color: transparent;
+                width: 100%;
+            }
+            a{
+                padding-left: 20px;
+                padding-right: 20px;
+                line-height: 2;
+            }
+            position: absolute;
+            display: none;
+            opacity: 0;
+            animation-duration: .6s;
+            animation-fill-mode: forwards;
+            top: calc(100% + 20px);
+            right: 0;
+            background-color: #f4f7f9;
+            box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.08);
+        }
     }
 }

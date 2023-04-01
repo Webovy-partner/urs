@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>URS</title>
 </head>
-<body>
+<body x-data="{modal : 0}" :class="modal > 0 ? 'owfhidden' : ''">
     <div class="mainscreen">
         <header class="container header" x-data="{menuOpen : false}" @click.away="menuOpen = false">
             <a href="/" class="logo"><img src="public/img/logo.png" alt=""></a>
@@ -18,21 +18,31 @@
                 <a href="" class="text-black text-16 text-small">Certification</a>
                 <a href="" class="text-black text-16 text-small">Inspection</a>
                 <a href="" class="text-black text-16 text-small">Testing</a>
-                <a href="" class="text-black text-16 text-small">About URS <img src="public/img/icons/dropdown.png" width="10" alt=""></a>
+                <div class="menu__dropdown" x-data="{showDropdown : false}">
+                    <div class="menu__dropdown-head">
+                        <a href="" class="text-black text-16 text-small">About URS <img src="public/img/icons/dropdown.png" width="10" alt=""></a>
+                        <div class="menu__dropdown-btn" @click="showDropdown = ! showDropdown"><img src="public/img/icons/dropdown.png" :class="showDropdown ? 'active' : ''" width="10" alt=""></div>
+                    </div>
+                    <div class="menu__dropdown-container" x-show="showDropdown">
+                        <a href="" class="text-black text-16 text-small">Inspection&nbsp;one&nbsp;two</a>
+                        <a href="" class="text-black text-16 text-small">Testing</a>
+                    </div>
+                </div>
+
                 <div class="df nav__button-mobile">
                     <a href="" class="btn-red text-12 text-bold">Request a quote</a>
                 </div>
             </nav>
             <div class="header__actions">
-                <button><img src="public/img/icons/search.png" width="20" alt=""></button>
+                <button><img src="public/img/icons/search.png"  @click="modal = 1" width="20" alt=""></button>
                 <a href=""><img src="public/img/icons/user.png" width="20" alt=""></a>
                 <div class="header__actions-buttons">
                     <a href="" class="btn-red text-12 text-bold">Request a quote</a>
-                    <a href="" class="btn-gray df alg-c text-12 text-bold">
+                    <button class="btn-gray df alg-c text-12 text-bold"  @click="modal = 2">
                         <img src="public/img/icons/earth.png" width="20" alt="">
                         Global
                         <img src="public/img/icons/dropdown__white.png" width="10" alt="">
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="hamburger"  @click="menuOpen = ! menuOpen" :class="menuOpen ? 'change' : ''" >
@@ -43,33 +53,192 @@
                 </div>
             </div>
             <span class="menu-shadow" :class="menuOpen ? 'active' : ''" @click="menuOpen = false"></span>
+
+            <div class="modal" x-show="modal !== 0" x-data="{activeWindow : 0}">
+                <div class="container">
+                    <button @click="modal = 0" x-show="modal == 1" class="modal-close"><img src="public/img/icons/close.png" alt=""></button>
+                    <div class="modal__search" x-show="modal == 1">
+                        <div class="modal__searchform">
+                            <form action="">
+                                <input type="text" class="text-gray text-16 text-regular">
+                                <button class="btn-red df alg-c jst-c" type="submit"><img src="public/img/icons/search-white.png" width="20" height="20" alt=""></button>
+                            </form>
+                        </div>
+    
+                        <div class="modal__searchresults">
+                            <p class="text-20 text-white modal__searchresults-head text-regular"><span class="text-gray text-semibold">Found </span>Management System</p>
+    
+                            <div class="modal__searchgroup">
+                                <div class="df"><p class="label label-white">Certification</p></div>
+                            <a href="" class="text-16 text-white text-regular">ISO 15378 - Primary Packaging Materials For Medicinal Products</a>
+                            </div>
+                            <p class="text-14 text-semibold text-gray">Fulltext</p>
+                        </div>
+                    </div>
+
+                    <div class="modal__language" x-show="modal == 2 && activeWindow == 0">
+                        <button class="btn-gray df alg-c text-12 text-bold modal__language-btn" @click="modal = 0; activeWindow = 0;">
+                            <img src="public/img/icons/earth.png" width="20" alt="">
+                            Global
+                            <img src="public/img/icons/dropdown__white.png" width="10" alt="">
+                        </button>
+                        <div class="modal__language-top">
+                            <p class="text-20 text-semibold text-black">Head office of URS Holdings</p>
+                            <button @click="modal = 0; activeWindow = 0" class="modal-close"><img src="public/img/icons/close.png" alt=""></button>
+                        </div>
+
+                        <p class="text-16 text-gray text-regular">United House, 4 Hinton Road, Bournemouth BH1 2EE</p>
+                        <div class="modal__language-links">
+                            <a href="tel:+00441202552153" class="text-14 text-regular text-black">+00 44 1202 552 153</a>
+                            <a href="mailto:info@urs-holdings.com" class="text-red text-14 text-regular">info@urs-holdings.com</a>
+                            <a href="www.urs-holdings.coms" target="_blank" class="text-red text-14 text-regular">www.urs-holdings.com</a>
+                        </div>
+
+                        <div class="modal__language-bottom">
+                            <div class="modal__language-bottom-earth text-16 text-semibold text-gray"><img src="public/img/icons/earth-gray.png" width="20" height="20" alt="">Global <span class="text-regular text-gray">(English)</span></div>
+                            <button class="text-red text-16 text-regular" @click="activeWindow = 1">Change</button>
+                        </div>
+                    </div>
+                    <div class="modal__language" x-show="modal == 2 && activeWindow == 1">
+                        <button class="btn-gray df alg-c text-12 text-bold modal__language-btn" @click="modal = 0; activeWindow = 0;">
+                            <img src="public/img/icons/earth.png" width="20" alt="">
+                            Global
+                            <img src="public/img/icons/dropdown__white.png" width="10" alt="">
+                        </button>
+                        <!-- Langugage select -->
+                        <div class="modal__language-top">
+                            <p class="text-20 text-semibold text-black">Choose your country or language</p>
+                            <button @click="modal = 0; activeWindow = 0" class="modal-close"><img src="public/img/icons/close.png" alt=""></button>
+                        </div>
+
+                        <div class="modal__language-search">
+                            <input type="text" class="input-primary" placeholder="Enter language or country">
+                        </div>
+                        <!-- Langugage options -->
+                        <div class="modal__languages">
+                            <div class="modal__language-bottom-earth global text-16 text-semibold text-gray">
+                                <img src="public/img/icons/earth-gray.png" width="20" height="20" alt="">
+                                Global 
+                                <span class="text-regular text-gray">(English)</span>
+                                <img class="modal__language-bottom-earth-img" src="public/img/icons/language-selected.png" width="17.6" alt="">
+                            </div>
+
+                            <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                                Argentina 
+                                <span class="text-regular text-gray">(English)</span>
+                                <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                            </div>
+                            <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                                Argentina 
+                                <span class="text-regular text-gray">(English)</span>
+                                <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                            </div>
+                            <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                                Argentina 
+                                <span class="text-regular text-gray">(English)</span>
+                                <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                            </div>
+                            <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                                Argentina 
+                                <span class="text-regular text-gray">(English)</span>
+                                <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                            </div>
+                            <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                                Argentina 
+                                <span class="text-regular text-gray">(English)</span>
+                                <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                            </div>
+                            <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                                Argentina 
+                                <span class="text-regular text-gray">(English)</span>
+                                <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                            </div>
+                            <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                                Argentina 
+                                <span class="text-regular text-gray">(English)</span>
+                                <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                            </div>
+                            <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                                Argentina 
+                                <span class="text-regular text-gray">(English)</span>
+                                <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </header>
 
         <div class="slideshow container">
-
             <div class="slideshow__menu">
                 <ul id="slideshow__mainnavigation" class="slnav">
-                    <div class="slnav__item" onclick="slideTo(1)">
+                    <div class="slnav__item" onclick="slideTo(1,1)">
                         <p class="text-16 text-regular text-gray">Transport&nbsp;and&nbsp;logistics</p>
                     </div>
-                    <div class="slnav__item" onclick="slideTo(2)">
+                    <div class="slnav__item" onclick="slideTo(2,2)">
                         <p class="text-16 text-regular text-gray">Second&nbsp;Party&nbsp;Audits</p>
                     </div>
-                    <div class="slnav__item" onclick="slideTo(3)">
+                    <div class="slnav__item" onclick="slideTo(3,3)">
                         <p class="text-16 text-regular text-gray">Data&nbsp;Security</p>
                     </div>
-                    <div class="slnav__item" onclick="slideTo(4)">
+                    <div class="slnav__item" onclick="slideTo(4,4)">
                         <p class="text-16 text-regular text-gray">Medical&nbsp;Devices</p>
                     </div>
-                    <div class="slnav__item" onclick="slideTo(5)">
+                    <div class="slnav__item" onclick="slideTo(5,5)">
                         <p class="text-16 text-regular text-gray">Automotive</p>
                     </div>
-                    <div class="slnav__item" onclick="slideTo(6)">
+                    <div class="slnav__item" onclick="slideTo(6,6)">
                         <p class="text-16 text-regular text-gray">Aerospace&nbsp;Industry</p>
                     </div>
-                    <div class="slnav__item" onclick="slideTo(7)">
+                    <div class="slnav__item" onclick="slideTo(7,7)">
                         <p class="text-16 text-regular text-gray">Management&nbsp;Systems</p>
                     </div>
+
+                    <div class="slnav__item" onclick="slideTo(1,8)">
+                        <p class="text-16 text-regular text-gray">Transport&nbsp;and&nbsp;logistics</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(2,9)">
+                        <p class="text-16 text-regular text-gray">Second&nbsp;Party&nbsp;Audits</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(3,10)">
+                        <p class="text-16 text-regular text-gray">Data&nbsp;Security</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(4,11)">
+                        <p class="text-16 text-regular text-gray">Medical&nbsp;Devices</p>
+                    </div>
+                    <div class="slnav__item active" onclick="slideTo(5,12)">
+                        <p class="text-16 text-regular text-gray">Automotive</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(6,13)">
+                        <p class="text-16 text-regular text-gray">Aerospace&nbsp;Industry</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(7,14)">
+                        <p class="text-16 text-regular text-gray">Management&nbsp;Systems</p>
+                    </div>
+                    
+                    <div class="slnav__item" onclick="slideTo(1,15)">
+                        <p class="text-16 text-regular text-gray">Transport&nbsp;and&nbsp;logistics</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(2,16)">
+                        <p class="text-16 text-regular text-gray">Second&nbsp;Party&nbsp;Audits</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(3,17)">
+                        <p class="text-16 text-regular text-gray">Data&nbsp;Security</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(4,18)">
+                        <p class="text-16 text-regular text-gray">Medical&nbsp;Devices</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(5,19)">
+                        <p class="text-16 text-regular text-gray">Automotive</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(6,20)">
+                        <p class="text-16 text-regular text-gray">Aerospace&nbsp;Industry</p>
+                    </div>
+                    <div class="slnav__item" onclick="slideTo(7,21)">
+                        <p class="text-16 text-regular text-gray">Management&nbsp;Systems</p>
+                    </div>
+                    
                 </ul>
                 <span class="slideshow__menu-bb"></span>
             </div>

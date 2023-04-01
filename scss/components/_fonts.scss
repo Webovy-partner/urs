@@ -115,6 +115,9 @@ html{
     &-white{
         color: white;
     }
+    &-red{
+        color: $red;
+    }
   
     &-italic{
         font-style: italic;

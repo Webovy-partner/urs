@@ -1,3 +1,71 @@
+first = true;
+lastPosition = 0;
+function scrollToChildElement(pos, child) {
+    // if posiiton is last then click on next lements, but after change, disable smooth, and chage position to cnenter of that element
+    // Init center items 
+
+    console.log();
+    count = $('#slideshow__mainnavigation > div').length / 3;
+    min_count = count;
+    max_count = count+7;
+    pos += count;
+
+    // Get a reference to the parent container
+    const parentContainer = document.querySelector('#slideshow__mainnavigation');
+  
+    // Get a reference to the child element with the given ID
+    const childElement = document.querySelector('.slnav__item:nth-child('+pos+')');
+    $('.slnav__item.active').removeClass('active');
+    $('.slnav__item:nth-child('+pos+')').addClass('active');
+  
+    // Calculate the scroll position to scroll to the child element
+    const parentWidth = parentContainer.offsetWidth;
+    const childWidth = childElement.offsetWidth;
+    const childLeftOffset = childElement.offsetLeft - parentContainer.offsetLeft;
+    const scrollPosition = childLeftOffset - (parentWidth - childWidth) / 2;
+  
+    // Scroll the parent container to the child element
+
+    // if lastPosition == 7 {first elemnt} => next position == 
+    if(first == false){
+        parentContainer.scroll({
+            left: scrollPosition,
+            behavior: 'auto'
+        });
+    }
+    else{
+        parentContainer.scroll({
+            left: scrollPosition,
+            behavior: 'auto'
+        });
+        first = false;
+    }
+
+    lastPosition = pos;
+}
+
+
+function slideTo(pos){
+    slider.goToSlide(pos);
+    scrollToChildElement(pos);
+    //slider_navigation.goToSlide(pos);
+}
+
+function slidePrev(){
+    backgroundSlide.goToPrevSlide()
+    //slider_navigation.goToPrevSlide();
+}
+
+function slideNext(){
+    backgroundSlide.goToNextSlide()
+    //slider_navigation.goToNextSlide();
+}
+
+function changeMenuSliderPosition(){
+    //slider_navigation.goToSlide(slider.getCurrentSlideCount())
+    scrollToChildElement(slider.getCurrentSlideCount());
+}
+
 slideTime = 10000;
 pos = 1;
 
@@ -22,25 +90,6 @@ $(document).ready(function(){
         },
       
     });
-
-    slider_navigation = $('#slideshow__mainnavigation').lightSlider({
-        gallery: false,
-        controls: false,
-        list: false,
-        pager: false,
-        enableDrag: true,
-        item: 6,
-        enableTouch: true,
-        autoWidth: true,
-        adaptiveHeight: true,
-        auto: true,
-        pause: slideTime,
-        slideMargin: 0,
-        centerSlide:true,  
-        loop: true,
-        
-    });
-
 
     $('#slideshowflex').lightSlider({
         gallery: false,
@@ -86,23 +135,7 @@ $(document).ready(function(){
         onBeforeSlide: function(){
         }
     });
+
+
+    changeMenuSliderPosition();
 });
-
-function slideTo(pos){
-    slider.goToSlide(pos);
-    slider_navigation.goToSlide(pos);
-}
-
-function slidePrev(){
-    backgroundSlide.goToPrevSlide()
-    slider_navigation.goToPrevSlide();
-}
-
-function slideNext(){
-    backgroundSlide.goToNextSlide()
-    slider_navigation.goToNextSlide();
-}
-
-function changeMenuSliderPosition(){
-    slider_navigation.goToSlide(slider.getCurrentSlideCount());
-}

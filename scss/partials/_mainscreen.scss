@@ -20,8 +20,27 @@
     }
 
     .slnav{
+        display: flex;
+        overflow-x: hidden;
+        &::-webkit-scrollbar-track
+        {
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar
+        {
+            width: 0;
+            height: 0;
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb
+        {
+            background-color: transparent;
+        }
+
         &__item{
             height: 50px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -63,6 +82,13 @@
                 margin-right: 10px !important;
                 margin-left: 10px !important;
                 */
+                p{
+                    color: $green;
+                    -webkit-text-stroke-color: $green;
+                    border-color: $green;
+                }
+            }
+            &.active{
                 p{
                     color: $green;
                     -webkit-text-stroke-color: $green;
