@@ -55,6 +55,9 @@ a{
         font-size: 20px;
         line-height: 25px;
     }
+    &-24{
+        font-size: 24px;
+    }
     &-25{
         font-size: 25px;
         @media screen and (max-width: 768px) {
@@ -103,6 +106,9 @@ a{
     }
     &-uppercase{
         text-transform: uppercase;
+    }
+    &-italic{
+        font-style: italic;
     }
 }
 

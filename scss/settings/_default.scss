@@ -7,6 +7,9 @@ button,a{
     cursor: pointer;
 }
 
+html{
+    scroll-behavior: smooth;
+}
 button:focus{
     border: none;
     outline: none;

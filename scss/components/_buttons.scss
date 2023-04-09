@@ -5,11 +5,16 @@
         color: white;
         border: unset;
         min-height: 39px;
-        display: flex;
         box-sizing: border-box;
-        align-items: center;
-        justify-content: center;
+        //display: flex;
+        //align-items: center;
+        //justify-content: center;
         transition: .25s;
+        &.larger{
+            padding-top: 11.5px;
+            padding-bottom: 11.5px;
+            margin-top: 35px;
+        }
         &:hover{
             background-color: #CD3932;
         }

@@ -27,9 +27,11 @@
         margin-top: 120px;
         @media screen and (max-width: 950px) {
             margin-top: 150px;
+            right: 13px;
         }
         @media screen and (max-width: 850px) {
             margin-top: 78px;
+            right: 0;
         }
         max-width: 660px;
         background-color: white;
@@ -229,6 +231,10 @@
 body.owfhidden{
     overflow: hidden;
     padding-right: 10px;
+}
+
+.owfhidden-x{
+    overflow-x: hidden;
 }
 
 .input{

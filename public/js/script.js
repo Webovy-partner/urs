@@ -136,6 +136,54 @@ $(document).ready(function(){
         }
     });
 
+    $('.related__slideshow').lightSlider({
+        gallery: false,
+        item: 5,
+        controls: false,
+        list: false,
+        loop:true,
+        pager: false,
+        thumbItem: 1,
+        enableDrag: true,
+        enableTouch: true,
+        auto: true,
+        slideMargin: 19,
+        pause: 2600,
+        responsive:[
+            {
+                breakpoint:1200,
+                settings: {
+                    item:4,
+                    slideMove:1,
+                  }
+            },
+            {
+                breakpoint:900,
+                settings: {
+                    item:3,
+                    slideMove:1,
+                  }
+            },
+            {
+                breakpoint:800,
+                settings: {
+                    item:2,
+                    slideMove:1,
+                  }
+            },
+            {
+                breakpoint:550,
+                settings: {
+                    item:1,
+                    slideMove:1,
+                  }
+            },
+        ],
+
+        onBeforeSlide: function(){
+        }
+    });
+
 
     changeMenuSliderPosition();
 });

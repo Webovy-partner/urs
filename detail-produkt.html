@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="public/css/min/style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>URS</title>
+</head>
+<body x-data="{modal : 0}" :class="modal > 0 ? 'owfhidden' : ''">
+    <header class="container header" x-data="{menuOpen : false}" @click.away="menuOpen = false">
+        <a href="/" class="logo"><img src="public/img/logo.png" alt=""></a>
+        <nav :class="menuOpen ? 'active' : ''">
+            <a href="" class="text-black text-16 text-small">Certification</a>
+            <a href="" class="text-black text-16 text-small">Inspection</a>
+            <a href="" class="text-black text-16 text-small">Testing</a>
+            <div class="menu__dropdown" x-data="{showDropdown : false}">
+                <div class="menu__dropdown-head">
+                    <a href="" class="text-black text-16 text-small">About URS <img src="public/img/icons/dropdown.png" width="10" alt=""></a>
+                    <div class="menu__dropdown-btn" @click="showDropdown = ! showDropdown"><img src="public/img/icons/dropdown.png" :class="showDropdown ? 'active' : ''" width="10" alt=""></div>
+                </div>
+                <div class="menu__dropdown-container" x-show="showDropdown">
+                    <a href="" class="text-black text-16 text-small">Inspection&nbsp;one&nbsp;two</a>
+                    <a href="" class="text-black text-16 text-small">Testing</a>
+                </div>
+            </div>
+
+            <div class="df nav__button-mobile">
+                <a href="" class="btn-red text-12 text-bold">Request a quote</a>
+            </div>
+        </nav>
+        <div class="header__actions">
+            <button><img src="public/img/icons/search.png"  @click="modal = 1" width="20" alt=""></button>
+            <a href=""><img src="public/img/icons/user.png" width="20" alt=""></a>
+            <div class="header__actions-buttons">
+                <a href="" class="btn-red text-12 text-bold">Request a quote</a>
+                <button class="btn-gray df alg-c text-12 text-bold"  @click="modal = 2">
+                    <img src="public/img/icons/earth.png" width="20" alt="">
+                    Global
+                    <img src="public/img/icons/dropdown__white.png" width="10" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="hamburger"  @click="menuOpen = ! menuOpen" :class="menuOpen ? 'change' : ''" >
+            <div class="hamburger__item">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+        <span class="menu-shadow" :class="menuOpen ? 'active' : ''" @click="menuOpen = false"></span>
+
+        <div class="modal" x-show="modal !== 0" x-data="{activeWindow : 0}">
+            <div class="container">
+                <button @click="modal = 0" x-show="modal == 1" class="modal-close"><img src="public/img/icons/close.png" alt=""></button>
+                <div class="modal__search" x-show="modal == 1">
+                    <div class="modal__searchform">
+                        <form action="">
+                            <input type="text" class="text-gray text-16 text-regular">
+                            <button class="btn-red df alg-c jst-c" type="submit"><img src="public/img/icons/search-white.png" width="20" height="20" alt=""></button>
+                        </form>
+                    </div>
+
+                    <div class="modal__searchresults">
+                        <p class="text-20 text-white modal__searchresults-head text-regular"><span class="text-gray text-semibold">Found </span>Management System</p>
+
+                        <div class="modal__searchgroup">
+                            <div class="df"><p class="label label-white">Certification</p></div>
+                        <a href="" class="text-16 text-white text-regular">ISO 15378 - Primary Packaging Materials For Medicinal Products</a>
+                        </div>
+                        <p class="text-14 text-semibold text-gray">Fulltext</p>
+                    </div>
+                </div>
+
+                <div class="modal__language" x-show="modal == 2 && activeWindow == 0">
+                    <button class="btn-gray df alg-c text-12 text-bold modal__language-btn" @click="modal = 0; activeWindow = 0;">
+                        <img src="public/img/icons/earth.png" width="20" alt="">
+                        Global
+                        <img src="public/img/icons/dropdown__white.png" width="10" alt="">
+                    </button>
+                    <div class="modal__language-top">
+                        <p class="text-20 text-semibold text-black">Head office of URS Holdings</p>
+                        <button @click="modal = 0; activeWindow = 0" class="modal-close"><img src="public/img/icons/close.png" alt=""></button>
+                    </div>
+
+                    <p class="text-16 text-gray text-regular">United House, 4 Hinton Road, Bournemouth BH1 2EE</p>
+                    <div class="modal__language-links">
+                        <a href="tel:+00441202552153" class="text-14 text-regular text-black">+00 44 1202 552 153</a>
+                        <a href="mailto:info@urs-holdings.com" class="text-red text-14 text-regular">info@urs-holdings.com</a>
+                        <a href="www.urs-holdings.coms" target="_blank" class="text-red text-14 text-regular">www.urs-holdings.com</a>
+                    </div>
+
+                    <div class="modal__language-bottom">
+                        <div class="modal__language-bottom-earth text-16 text-semibold text-gray"><img src="public/img/icons/earth-gray.png" width="20" height="20" alt="">Global <span class="text-regular text-gray">(English)</span></div>
+                        <button class="text-red text-16 text-regular" @click="activeWindow = 1">Change</button>
+                    </div>
+                </div>
+                <div class="modal__language" x-show="modal == 2 && activeWindow == 1">
+                    <button class="btn-gray df alg-c text-12 text-bold modal__language-btn" @click="modal = 0; activeWindow = 0;">
+                        <img src="public/img/icons/earth.png" width="20" alt="">
+                        Global
+                        <img src="public/img/icons/dropdown__white.png" width="10" alt="">
+                    </button>
+                    <!-- Langugage select -->
+                    <div class="modal__language-top">
+                        <p class="text-20 text-semibold text-black">Choose your country or language</p>
+                        <button @click="modal = 0; activeWindow = 0" class="modal-close"><img src="public/img/icons/close.png" alt=""></button>
+                    </div>
+
+                    <div class="modal__language-search">
+                        <input type="text" class="input-primary" placeholder="Enter language or country">
+                    </div>
+                    <!-- Langugage options -->
+                    <div class="modal__languages">
+                        <div class="modal__language-bottom-earth global text-16 text-semibold text-gray">
+                            <img src="public/img/icons/earth-gray.png" width="20" height="20" alt="">
+                            Global 
+                            <span class="text-regular text-gray">(English)</span>
+                            <img class="modal__language-bottom-earth-img" src="public/img/icons/language-selected.png" width="17.6" alt="">
+                        </div>
+
+                        <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                            Argentina 
+                            <span class="text-regular text-gray">(English)</span>
+                            <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                        </div>
+                        <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                            Argentina 
+                            <span class="text-regular text-gray">(English)</span>
+                            <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                        </div>
+                        <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                            Argentina 
+                            <span class="text-regular text-gray">(English)</span>
+                            <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                        </div>
+                        <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                            Argentina 
+                            <span class="text-regular text-gray">(English)</span>
+                            <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                        </div>
+                        <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                            Argentina 
+                            <span class="text-regular text-gray">(English)</span>
+                            <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                        </div>
+                        <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                            Argentina 
+                            <span class="text-regular text-gray">(English)</span>
+                            <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                        </div>
+                        <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                            Argentina 
+                            <span class="text-regular text-gray">(English)</span>
+                            <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                        </div>
+                        <div class="modal__language-bottom-earth text-16 text-semibold text-gray">
+                            Argentina 
+                            <span class="text-regular text-gray">(English)</span>
+                            <img class="modal__language-bottom-earth-img" src="public/img/icons/language-select.png" width="16" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="mainscreen container">
+        <div class="breadcrumbs">
+            <a href="" class="text-black text-14 text-regular"><img src="public/img/icons/home.png" height="17" alt="">Home <img src="public/img/icons/breadcrumbs-right.png" height="10" alt=""></a>
+            <a href="" class="text-black text-14 text-regular">Articles <img src="public/img/icons/breadcrumbs-right.png" height="10" alt=""></a>
+            <p class="text-14 text-regular text-gray">Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet&nbsp;consectetur&nbsp;...</p>
+        </div>
+    </div>
+
+    <div class="container owfhidden-x">
+        <div class="blog__thumb mb-50">
+            <div class="blog__thumb-left">
+                <h1 class="text-50 text-black">Dignissim adipiscing posuere viverra adipiscing arcu</h1>
+                <div class="df blog__labels">
+                    <p class="label label-green2">Aerospace Industry</p>
+                    <p class="label label-green">Automotive</p>
+                    <p class="label label-red">Medical Devices</p>
+                    <p class="label label-blue">Data Security</p>
+                </div>
+            </div>
+            <div class="blog__thumb-right">
+                <div>
+                    <img src="public/img/blog/blog__thumb2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="blog__content reverse">
+            <div class="blog__content-left">
+                <div class="mb-60 max-700" id="one">
+                    <h2 class="text-30 text-regular text-black text-uppercase">In <span class="text-bold">short</span></h2>
+                    <p class="text-16 text-regular text-gray">Certification of product: EN 1090 With reference to CE or UKCA Marking of any product it is legally the responsibility of the “manufacturer” to determine the execution level (with reference to EN 1090).As with any product, the one actually placing the product into the market must be the one taking legal responsibility to ensure compliance – otherwise the whole free market will be awash with damaging products – at worst a product causing death by manufacturing negligence!</p>
+                    <div class="df">
+                        <a href="" class="btn-red larger text-20 text-regular">Zanechte nám kontakt,<span class="text-bold">&nbsp;ozveme se Vám...</span></a>
+                    </div>
+                </div>
+
+                <div class="background--green df alg-c">
+                    <div>
+                        <img src="public/img/icons/detail-icon.png" alt="">
+                    </div>
+                    <p class="text-16 text-bold text-white">This products can by fully digital and with care to our planet. &nbsp;</p> <a href="" class="text-white text-16" target="_blank"> Read more…</a>
+                </div>
+
+                <div class="background--graylight pt-70 pb-70 mb-60 border-bottom max-700"" id="two">
+                    <p class="text-30 text-regular text-black text-uppercase">Detailed <span class="text-bold">description</span></p>
+                    <p class="text-16 text-gray">Therefore, when considering a contract obligation, always confirm the execution level with the one placing the product into the market. However, if this information with reference to the execution level is not forthcoming (and cannot be identified within the contract specification), please don’t worry, because it is very likely that you have been contracted to provide a part of the contract specification; in short, if you are technically confident that your business can meet with the technical specification provided, then this is your only contract obligation, e.g. to quote your customer and agree the contract and deliver the fabricated and welded item.</p>
+                    
+                    <br>
+                    <p class="text-bold text-16 text-black">Execution level 1</p>
+                    <p class="text-regular text-16 text-black">Agricultural buildings, greenhouses, etc. (no NDT unless required by the customer)</p>
+                    <br>
+                    <p class="text-bold text-16 text-black">Execution level 2</p>
+                    <p class="text-regular text-16 text-black">Agricultural buildings, greenhouses, etc. (no NDT unless required by the customer)</p>
+                    <br>
+                    <p class="text-bold text-16 text-black">Execution level 3</p>
+                    <p class="text-regular text-16 text-black">Agricultural buildings, greenhouses, etc. (no NDT unless required by the customer)</p>
+                    <br>
+                    <p class="text-bold text-16 text-black">Execution level 4</p>
+                    <p class="text-regular text-16 text-black">Agricultural buildings, greenhouses, etc. (no NDT unless required by the customer)</p>
+                    <br>
+
+                    <p class="text-16 text-gray">The usual place for the execution level is detailed within the technical drawing for the product required and or within the contract terms and conditions issued by the buyer (your customer or the main contractor, placing the product onto the market). With reference to the EN 1090 series requirements, the standard states that where the execution level is not specified, the default level is execution level two – EXC 2 is the default and common level. However, it is worth agreeing the execution level with the customer prior to agreeing the contract specification and agreeing to proceed with the work.
+                        <br><br>
+                        Certified organisations can promote themselves as certificate holders in their promotional materials and can include the URS certification logo free of charge.</p>
+                </div>
+
+
+                <div class="pb-70 mb-60 border-bottom max-700">
+                    <h2 class="text-30 text-regular text-black text-uppercase">WHO USE <span class="text-bold">THIS PRODUCT</span></h2>
+                    <div class="companybanner">
+                        <div class="companybanner-top">
+                            <img src="public/img/companies/pepsi-two.jpg" height="50" alt="">
+                            <div>
+                                <p class="text-20 text-bold text-black">PepsiCo</p>
+                                <p class="text-16 text-gray text-regular">out client from 2005</p>
+                            </div>
+                        </div>
+                        <p class="text-16 text-black text-italic">
+                            “Certified organisations can advertise themselves as certificate holders in their promotional materials and can display the URS certification logo free of charge.”
+                        </p>
+                        <p class="text-16 text-bold text-black">Václav Bohniat</p>
+                        <p class="text-gray text-16 text-regular">sale manager</p>
+                    </div>
+                </div>
+
+                <div class="pb-70 mb-60 border-bottom max-700">
+                    <p class="text-30 text-black text-regular text-uppercase">Benefit <span class="text-bold">for you</span></p>
+                    <p class="text-16 text-regular text-gray">Certified organisations can advertise themselves as certificate holders in their promotional materials and can display the URS certification logo free of charge.</p>
+                    <div class="df">
+                        <a href="" class="btn-red larger text-20 text-regular">Zanechte nám kontakt,<span class="text-bold">&nbsp;ozveme se Vám...</span></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="blog__content-right">
+                <div>
+                    <p class="text-30 text-black text-regular text-uppercase">Related <span class="text-bold">tools</span></p>
+                    <ul class="blog__links border-bottom pb-50 mb-60">
+                        <li>Tender request form</li>
+                        <li>Certificate verification</li>
+                    </ul>
+                </div>
+                <div class="blog__download border-bottom pb-50 mb-50">
+                    <p class="text-30 text-black text-regular text-uppercase">free <span class="text-bold">download</span></p>
+                    <div class="">
+                        <a href="" download="" class="text-12 text-regular text-black df alg-c"><img src="public/img/icons/ftp-icon.png" height="25" width="25" alt=""> Databáze IDTF kódů</a>
+                        <a class="text-12 text-regular text-gray" href="" download="">2,2 min sran | 0.9 MB | PDF | <span>Stáhnout Ebook čtení</span></a>
+                    </div>
+                </div>
+                
+                <div class="blog__related mb-50 pb-60 border-bottom">
+                    <p class="text-30 text-black text-regular text-uppercase">Related <span class="text-bold">articles</span></p>
+                    <div class="blog__related_container">
+                        <div class="blog__related-item">
+                            <img src="public/img/thumb-square.jpg" width="120" height="120" alt="">
+                            <div>
+                                <a href="" class="text-16 text-regular text-black">Povinný přechod na nové schéma GMP+ B4 PŘEPRAVA V SILNIČNÍ, ŽELEZNIČNÍ A LODNÍ DOPRAVĚ</a>
+                                <p class="text-12 text-regular text-gray">9.3.2023 | 8:45</p>
+                            </div>
+                        </div>
+                        <div class="blog__related-item">
+                            <img src="public/img/thumb-square.jpg" width="120" height="120" alt="">
+                            <div>
+                                <a href="" class="text-16 text-regular text-black">Povinný přechod na nové schéma GMP+ B4 PŘEPRAVA V SILNIČNÍ, ŽELEZNIČNÍ A LODNÍ DOPRAVĚ</a>
+                                <p class="text-12 text-regular text-gray">9.3.2023 | 8:45</p>
+                            </div>
+                        </div>
+                        <a href="" class="text-16 text-regular text-gray">Zobrazit všechna školení</a>
+                    </div>
+                </div>
+
+                <div class="blog__download mb-50">
+                    <p class="text-30 text-black text-regular text-uppercase">informace <span class="text-bold">zdarma</span></p>
+                    
+                    <div>
+                        <form action="" method="POST" class="blog__news">
+                            <input type="text" name="name" class="input" placeholder="EN 1090 Structural steel and metalworking...">
+                            <input type="text" name="phone" class="input" placeholder="Company...">
+                            <input type="text" name="phone" class="input" placeholder="Mobile...">
+                            <input type="email" name="mail" class="input" placeholder="Email...">
+                            <select name="" id="" class="input">
+                                <option value="0">Country...</option>
+                            </select>
+                            <textarea name="" id="" cols="30" rows="10" class="input" placeholder="Message..."></textarea>
+                            <div class="df alg-c jst-b">
+                                <div class="footerform__privacy">
+                                    <div class="form-group">
+                                        <input type="checkbox" id="privacy">
+                                        <label for="privacy">I accept</label>
+                                    </div>
+                                    <a href="" target="_blank" class="text-underline">Privacy Policy</a>
+                                </div>
+                                <button type="submit" class="btn-red">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="whyurs">
+            <h4 class="text-30 text-regular text-black text-uppercase">why choose <span class="text-bold">urs</span></h4>
+            <div class="whyurs__container-large">
+                <div class="whyurs__item">
+                    <img src="public/img/whyurs/years.png" width="80" alt="">   
+                    <p class="text-semibold text-20 text-black">More than 25 years on the market</p>
+                </div>
+                <div class="whyurs__item">
+                    <img src="public/img/whyurs/future.png" width="80" alt="">   
+                    <p class="text-semibold text-20 text-black">We think about future and environment</p>
+                </div>
+                <div class="whyurs__item">
+                    <img src="public/img/whyurs/earth.png" width="80" alt="">   
+                    <p class="text-semibold text-20 text-black">Background and experiences of a multinational company</p>
+                </div>
+                <div class="whyurs__item">
+                    <img src="public/img/whyurs/devices.png" width="80" alt="">   
+                    <p class="text-semibold text-20 text-black">We work and develop functional online solutions</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="footerform">
+        <div class="container">
+            <h4 class="text-30 text-regular text-black text-uppercase">enquiry <span class="text-bold">form</span></h4>
+            <div class="footerform__container">
+                <form action="" method="POST" class="footerform__form">
+                    <input type="text" name="name" placeholder="Name...">
+                    <input type="text" name="phone" placeholder="Mobile...">
+                    <input type="email" name="mail" placeholder="Email...">
+                    <div class="df alg-c jst-b">
+                        <div class="footerform__privacy">
+                            <div class="form-group">
+                                <input type="checkbox" id="privacy">
+                                <label for="privacy">I accept</label>
+                              </div>
+                              <a href="" target="_blank" class="text-underline">Privacy Policy</a>
+                        </div>
+                        <button type="submit" class="btn-red">Send Message</button>
+                    </div>
+                </form>
+                <div class="footerform__navigation">
+                    <p class="text-20 text-semibold text-gray">Navigation</p>
+                    <div class="footerform__links">
+                        <a href="" class="text-16 text-regular text-white">Accreditations</a>
+                        <a href="" class="text-16 text-regular text-white">Memberships</a>
+                        <a href="" class="text-16 text-regular text-white">URS Academy</a>
+                        <a href="" class="text-16 text-regular text-white">ISO</a>
+                        <a href="" class="text-16 text-regular text-white">Certification</a>
+                        <a href="" class="text-16 text-regular text-white">Inspection</a>
+                        <a href="" class="text-16 text-regular text-white">Testing</a>
+                        <a href="" class="text-16 text-regular text-white">Product</a>
+                        <a href="" class="text-16 text-regular text-white">Training</a>
+                        <a href="" class="text-16 text-regular text-white">Contact</a>
+                        <a href="" class="text-16 text-regular text-white">Covid-19</a>
+                    </div>
+                    <p class="text-20 text-semibold text-gray">Newsletter</p>
+                    <form class="footerform__newsletter" action="" method="POST">
+                        <div class="df">
+                            <input type="email" placeholder="Email..">
+                            <button type="submit" class="btn-red">Subscribe</button>
+                        </div>
+                        
+                        <div class="footerform__privacy">
+                            <div class="form-group">
+                                <input type="checkbox" id="privacy2">
+                                <label for="privacy2">I accept</label>
+                              </div>
+                              <a href="" target="_blank" class="text-underline">Privacy Policy</a>
+                        </div>
+
+                    </form>
+                    <div class="footer__links2">
+                        <a href="" class="text-14 text-regular text-gray">Published Materials | </a>
+                        <a href="" class="text-14 text-regular text-gray">Scheme Rules and Regulations | </a>
+                        <a href="" class="text-14 text-regular text-gray">Privacy | </a>
+                        <a href="" class="text-14 text-regular text-gray">Logos and Regulations | </a>
+                        <a href="" class="text-14 text-regular text-gray">Policy | </a>
+                        <a href="" class="text-14 text-regular text-gray">DDA | </a>
+                        <a href="" class="text-14 text-regular text-gray">Certification process | </a>
+                        <a href="" class="text-14 text-regular text-gray">About URS | </a>
+                        <a href="" class="text-14 text-regular text-gray">GCC | </a>
+                        <a href="" class="text-14 text-regular text-gray">Brexit | </a>
+                        <a href="" class="text-14 text-regular text-gray">Cookie setup</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__copy">
+                <p class="text-14 text-regular text-gray">Copyright © 2022 URS Holdings &nbsp;&nbsp;&nbsp; All Rights Reserved</p>
+            </div>
+            <a href="" target="_blank" class="footer__linked"><img src="public/img/linkedin.png" width="40" height="40" alt=""></a>
+        </div>
+    </footer>
+    
+    <script src="public/js/alpine.js" defer></script>
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/lightslider.js"></script>
+    <script src="public/js/script.js"></script>
+    <script src="public/js/mail.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+.deadlines{
+    margin-bottom: 66px;
+    .text-30{
+        margin-bottom: 39px;
+    }
+
+    &__container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 50px;
+        @media screen and (max-width: 1080px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media screen and (max-width: 768px) {
+            gap: 30px;
+        }
+        @media screen and (max-width: 550px) {
+            grid-template-columns: 1fr;
+        }
+        .df{
+            margin-top: 21px;
+            gap: 11px;
+            align-items: center;
+        }
+    }
+
+    .text-25{
+        @media screen and (max-width: 540px) {
+            font-size: 20px;
+        }
+    }
+    .text-20{
+        @media screen and (max-width: 540px) {
+            font-size: 16px;
+        }
+    }
+
+}

@@ -1,0 +1,35 @@
+.breadcrumbs{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    max-width: calc(100vw - 20px);
+    margin-left: 0;
+    width: 100%;
+    overflow-x: scroll;
+    &::-webkit-scrollbar-track
+    {
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar
+    {
+        width: 0;
+        height: 0;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+        background-color: transparent;
+    }
+    a{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: .2s;
+        line-height: 2;
+        &:hover{
+            color: $green;
+        }
+    }
+    margin-top: 30px;
+}

@@ -1,0 +1,90 @@
+.landing{
+    h1{
+        margin-bottom: 19px;
+    
+    }
+    margin-top: 53px;
+    margin-bottom: 56px;
+    padding-bottom: 65px;
+    border-bottom: 2px solid $gray-light;
+
+    &__thumb{
+        position: relative;
+        display: flex;
+        margin-bottom: 86px;
+        @media screen and (max-width: 880px) {
+            margin-bottom: 20px;
+        }
+        img{
+            margin-left: auto;
+            height: 400px;
+            width: auto;
+        }
+        &-img{
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        .slitem__left-green{
+            width: 400px;
+            top: -30px;
+            right: 100%;
+            &.text-40{
+                font-size: 40px;
+            }
+        }
+    }
+
+    &__small{
+        margin-top: 78px;
+        gap: 50px;
+        display: flex;
+        border-bottom: unset;
+        margin-bottom: 0;
+        padding-bottom: 50px;
+        @media screen and (max-width: 920px) { 
+            gap: 38px;
+        }
+
+        @media screen and (max-width: 768px) { 
+            flex-direction: column;
+
+            .landing__thumb{
+                &-img{
+                    flex-grow: 1;
+                }
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    
+        .landing__thumb-img{
+            display: flex;
+            flex-direction: column;
+            padding-left: 50px;
+            justify-content: flex-start;
+        }
+        &-actions{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 11px;
+            margin-top: 30px;
+            @media screen and (max-width: 768px) { 
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            a{
+                text-align: center;
+                width: 185px;
+            }
+        }
+    }
+}
+
+.lh-60{
+    line-height: 60px;
+}

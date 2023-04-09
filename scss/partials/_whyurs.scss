@@ -1,0 +1,104 @@
+.whyurs{
+    margin-bottom: 59px;
+    &__container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: relative;
+        @media screen and (max-width: 1080px) {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        &-large{
+            display: grid;
+            grid-template-columns: 1fr 1fr 325px 280px;
+            gap: 17px;
+
+            @media screen and (max-width: 1190px) {
+                grid-template-columns: 1fr 1fr;
+            }
+            @media screen and (max-width: 640px) {
+                grid-template-columns: 1fr;
+            }
+        }
+    }   
+
+
+    .text-30{
+        margin-bottom: 39px;
+    }
+
+    &__item{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        img{
+            height: 80px;
+        }
+    }
+
+    &__left{
+        row-gap: 30px;
+        display: grid;
+        grid-template-columns: 263px 325px;
+        column-gap: 7px;
+        @media screen and (max-width: 640px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__right{
+        padding-left: 55px;
+        overflow: hidden;
+        @media screen and (max-width: 1080px) {
+            padding-left: 0;
+        }
+        position: relative;
+
+        
+        &:after{
+            position: absolute;
+            content: '';
+            left: 55px;
+            z-index: -1;
+            width: calc(50vw - 55px);
+            top: 0;
+            height: 100%;
+            background-color: $red;
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
+        &-item{
+            background-color: $red;
+            padding-top: 44px;
+            padding-left: 50px;
+            padding-bottom: 50px;
+            &-bgc{
+                position: absolute;
+                bottom: 0;
+                opacity: .1;
+                left: 70px;
+                width: 100%;
+                max-width: 685px;
+                width: auto;
+            }
+            @media screen and (max-width: 768px) {
+                padding: 30px;
+            }
+            display: grid;
+            a{
+                color: red;
+                margin-top: 20px;
+                padding: 10px 20px;
+                height: 47px;
+                box-sizing: border-box;
+                background-color: white;
+                transition: .2s;
+                &:hover{
+                    background-color: $gray-dark;
+                    color: white;
+                }
+            }
+        }
+    }
+}
