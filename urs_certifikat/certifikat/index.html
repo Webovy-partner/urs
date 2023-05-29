@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/min/style.min.css">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+</head>
+<body class="app">
+    <header class="app-header">
+        <nav>
+            <a href="/"><img class="app-header__logo" height="40" src="/public/img/logo.png" alt=""></a>
+            <div class="app-header__language" x-data="{openL : false}" @click.away="openL = false">
+                <div class="app-header__language-head" @click="openL = ! openL" :class="openL ? 'active' : ''">
+                    <img src="/public/img/earth.png" height="20" alt="">
+                    <p class="text-12 text-bold text-gray-dark">Global</p>
+                    <img class="arrowdp" src="/public/img/dropdown-icon.png" height="5" alt="">
+                </div>
+                <div class="app-header__language-body" :class="openL ? 'active' : ''">
+                    <a href="" class="text-12 text-bold text-gray-dark">Long&nbsp;Text&nbsp;Here&nbsp;Text&nbsp;Here</a>
+                    <a href="" class="text-12 text-bold text-gray-dark">Global</a>
+                    <a href="" class="text-12 text-bold text-gray-dark">Global</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="app-scan">
+        <p class="text-18 text-bold text-center text-black">Ověřit platnost certifikátu</p>
+        
+        <img class="qr" src="/public/img/qr.jpg" alt="">
+        
+        <button class="app-btn-red text-20 text-bold">Skenovat QR kód</button>
+        
+        <div class="app-largetext" x-data="{dpText : false}" :class="dpText ? 'show' : ''">
+            <p class="text-14 text-gray-dark text-regular text-center">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce tellus. Integer rutrum, orci.. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce tellus. Integer rutrum, orci..</p>
+            <button class="app-btn-gray text-12 text-semibold" @click="dpText = ! dpText">Pokračovat ve čtení</button>
+        </div>
+
+        <button class="app-btn-green text-12 text-semibold">Digitální certifikát šetří životní prostředí</button>
+    </div>
+
+    <footer class="app-footer">
+        <p class="text-10 text-gray-dark text-regular">Copyright © 2022 URS Holdings<br>All Rights Reserved</p>
+        <a href="" target="_blank" class="text-20 text-extrabold text-gray-dark">in</a>
+    </footer>
+</body>
+</html>
