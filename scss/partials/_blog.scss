@@ -24,7 +24,11 @@
         margin-bottom: 20px;
         row-gap: 20px;
         @media screen and (max-width: 1240px) {
-            grid-template-columns: 1fr;
+            //grid-template-columns: 1fr;
+            display: flex;
+        }
+        @media screen and (max-width: 1024px) {
+            flex-direction: column-reverse;
         }
         &-left{
             margin-right: 25px;

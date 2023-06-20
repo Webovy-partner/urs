@@ -19,5 +19,6 @@
 	 "liveSassCompile.settings.showOutputWindowOn" : "None",
 	"liveSassCompile.settings.generateMap": false,
 	"liveServer.settings.port": 5500,
+	"livePreview.defaultPreviewPath": "/invite.html",
 
 }
